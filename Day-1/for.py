@@ -10,3 +10,10 @@ st="TheCodingCamp"
 y= len(st)
 for ch in range(y):
   print(st[ch])
+
+#break
+for i in range(10):
+  if(i==5):
+    break
+  print(i)
+
