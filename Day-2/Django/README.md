@@ -26,7 +26,7 @@ A Django-based e-commerce web application for showcasing and selling electronic 
 
 ## 🛒 About the Project
 
-This is a simple Django e-commerce web app focused on electronics. It allows an admin to manage products and users to browse them. The admin interface is built-in using Django's admin site.
+This is a simple Django e-commerce web app focused on Electronics. It allows an admin to manage products and users to browse them. The admin interface is built-in using Django's admin site.
 
 ---
 
@@ -49,13 +49,13 @@ flipkart/
 │   ├── urls.py
 │   └── ...
 │
-├── electronics/            # Main app for handling electronics
+├── Electronics/            # Main app for handling Electronics
 │   ├── admin.py
 │   ├── models.py
 │   ├── views.py
 │   ├── urls.py
 │   └── templates/
-│       └── electronics/
+│       └── Electronics/
 │           └── index.html
 │
 ├── static/                 # CSS/JS files
@@ -121,10 +121,10 @@ django-admin startproject flipkart
 cd flipkart
 ```
 
-**Create the electronics app:**
+**Create the Electronics app:**
 
 ```bash
-python manage.py startapp electronics
+python manage.py startapp Electronics
 ```
 
 ---
@@ -138,7 +138,7 @@ Edit `flipkart/settings.py`:
 ```python
 INSTALLED_APPS = [
     ...
-    'electronics',
+    'Electronics',
 ]
 ```
 
@@ -152,11 +152,11 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('electronics.urls')),
+    path('', include('Electronics.urls')),
 ]
 ```
 
-#### `electronics/urls.py`
+#### `Electronics/urls.py`
 
 ```python
 from django.urls import path
@@ -169,20 +169,20 @@ urlpatterns = [
 
 ### 3. Create a view
 
-#### `electronics/views.py`
+#### `Electronics/views.py`
 
 ```python
 from django.shortcuts import render
 
 def index(request):
-    return render(request, 'electronics/index.html')
+    return render(request, 'Electronics/index.html')
 ```
 
 ### 4. Create a template
 
 **File path:**
 ```
-electronics/templates/electronics/index.html
+Electronics/templates/Electronics/index.html
 ```
 
 **Example HTML:**
@@ -237,7 +237,7 @@ Follow the prompts to set username, email, and password.
 
 ### 2. Register models
 
-Edit `electronics/admin.py`:
+Edit `Electronics/admin.py`:
 
 ```python
 from django.contrib import admin
@@ -259,11 +259,11 @@ User sends GET request to 127.0.0.1:8000/
        ↓
 Project URLs (flipkart/urls.py)
        ↓
-App URLs (electronics/urls.py)
+App URLs (Electronics/urls.py)
        ↓
-View Function (electronics/views.py)
+View Function (Electronics/views.py)
        ↓
-Template Rendering (electronics/templates/electronics/index.html)
+Template Rendering (Electronics/templates/Electronics/index.html)
        ↓
 Response sent back to browser
 ```
