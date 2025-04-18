@@ -1,7 +1,3 @@
-Sure! Here's an **enhanced and detailed version of the `README.md`** that includes **your additional commands and flow descriptions**, integrated clearly and professionally:
-
----
-
 # 🛍️ Flipkart Django Project
 
 A Django-based e-commerce web application for showcasing and selling electronic items. This project simulates a mini Flipkart-like platform, designed using Django's MVC (Model-View-Controller) architecture.
