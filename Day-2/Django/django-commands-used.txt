@@ -1,0 +1,41 @@
+python -m venv venv - virtual environment
+
+venv\scripts\activate - activate environment
+
+pip install django - install django on venv
+
+django-admin startproject flipkart
+
+cd flipkart
+
+python manage.py startapp electronics
+
+settings.py -> Installed apps -> 'electronics'
+
+python manage.py runserver - to run server
+
+browser request -> project urls ->app urls
+
+app urls ->views.py -> template
+
+app -> templates -> app(Burgers) ->index.html
+
+http://127.0.0.1:8000/admin/
+
+once you create a model
+
+python manage.py makemigrations - file + id column
+
+python manage.py migrate - database enter
+
+http://127.0.0.1:8000/admin
+
+python manage.py createsuperuser
+
+admin.py -->> register the model
+
+pip install pillow
+
+
+127.0.0.1:8000 -->> get request >project urls> app
+urls >> views.py function run >> httpresponse/htmlpage
