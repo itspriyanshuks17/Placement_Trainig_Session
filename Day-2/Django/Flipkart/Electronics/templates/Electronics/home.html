@@ -169,11 +169,19 @@
             text-shadow: 0 0 10px rgba(129, 140, 248, 0.5);
         }
 
-        .form-container {
-            background: rgba(17, 24, 39, 0.95) !important;
+        .form-card {
+            transition: all 0.4s ease;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.3);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            background: rgba(17, 24, 39, 0.95);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
             animation: glow 2s ease-in-out infinite alternate;
+            padding: 2.5rem;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
         }
 
         @media (max-width: 768px) {
@@ -220,7 +228,8 @@
                             </span>
                             <div>
                                 <button class="btn btn-primary me-2">Add to Cart</button>
-                                <a href="{% url 'edit_product' pro.id %}" class="btn btn-outline-light">Edit</a>
+                                <a href="{% url 'edit_product' pro.id %}" class="btn btn-outline-light me-2">Edit</a>
+                                <a href="{% url 'delete_product' pro.id %}" class="btn btn-danger">Delete</a>
                             </div>
                         </div>
                     </div>
@@ -230,16 +239,28 @@
         </div>
 
         <!-- Product Form -->
-        <form method="POST" action="{% url 'home' %}" class="form-container p-4 rounded-4 mt-5 mb-5">
-            {% csrf_token %}
-            <h3 class="text-center mb-4">Submit Form</h3>
-            <div class="form-group">
-                {{ fm.as_p }}
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="form-card">
+                        <h3 class="text-center mb-4" style="font-weight: 800; font-size: 2rem; color: #a5b4fc; text-shadow: 0 0 20px rgba(165, 180, 252, 0.8);">
+                            Add New Product
+                        </h3>
+                        <form method="POST" action="{% url 'home' %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-group mb-4">
+                                {{ fm.as_p }}
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-plus-circle me-2"></i> Add Product
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="text-center mt-4">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </form>
+        </div>
     </div>
 
     <!-- Scripts -->
