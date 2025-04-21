@@ -1,6 +1,6 @@
 # 🛠️ Django Project Setup & Workflow Guide
 
-This README serves as a step-by-step guide to set up and run a Django project, using an example project named `flipkart` and an app called `electronics`.
+This README serves as a step-by-step guide to set up and run a Django project, using an example project named `flipkart` and an app called `Electronics`.
 
 ---
 
@@ -49,19 +49,19 @@ cd flipkart
 ## 🧱 Create a New App
 
 ```bash
-python manage.py startapp electronics
+python manage.py startapp Electronics
 ```
-This creates a new Django app named `electronics` inside the project.
+This creates a new Django app named `Electronics` inside the project.
 
 ---
 
 ## 🛠️ Register the App in `settings.py`
 
-Open `flipkart/settings.py`, and add `'electronics'` to the `INSTALLED_APPS` list:
+Open `flipkart/settings.py`, and add `'Electronics'` to the `INSTALLED_APPS` list:
 ```python
 INSTALLED_APPS = [
     ...
-    'electronics',
+    'Electronics',
 ]
 ```
 
@@ -94,9 +94,9 @@ Browser → Project URLs → App URLs → views.py → templates
 
 You should organize your templates like this:
 ```
-electronics/
+Electronics/
 └── templates/
-    └── electronics/
+    └── Electronics/
         └── index.html
 ```
 
@@ -118,7 +118,7 @@ python manage.py createsuperuser
 Follow the prompts to set username, email, and password.
 
 ### Register a Model in Admin:
-In `electronics/admin.py`, register your models:
+In `Electronics/admin.py`, register your models:
 ```python
 from .models import YourModel
 admin.site.register(YourModel)
