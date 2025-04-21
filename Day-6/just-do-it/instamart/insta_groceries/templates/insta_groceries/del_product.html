@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Product</title>
+</head>
+<body>
+    <h1>Delete Product</h1>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        <label for="product_id">Product ID:</label>
+        <input type="text" id="product_id" name="product_id">
+        <button type="submit">Delete Product</button>
+    </form>
+    <h2>Available Products</h2>
+    <ul>
+        {% for product in products %}
+            <li>{{ product.id }}: {{ product.name }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
