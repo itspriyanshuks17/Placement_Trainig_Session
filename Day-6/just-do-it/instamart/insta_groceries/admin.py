@@ -4,9 +4,9 @@ from .models import Product
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description', 'price', 'stock', 'category', 'image_display')
+    list_display = ('name', 'description', 'price', 'stock', 'category', 'image_display', 'created_at')
     search_fields = ('name', 'category')
-    list_filter = ('category',)
+    list_filter = ('category','created_at')
 
     def image_display(self, obj):
         if obj.image:

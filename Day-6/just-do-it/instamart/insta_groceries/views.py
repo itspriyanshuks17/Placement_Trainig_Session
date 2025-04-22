@@ -4,16 +4,13 @@ from .forms import ProductForm
 
 
 def home(request):
-    prods = Product.objects.all()
-    if request.method == 'POST':
-        form = ProductForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('home')
+    query = request.GET.get('q', '')
+    if query:
+        prods = Product.objects.filter(name__icontains=query) | Product.objects.filter(category__icontains=query)
     else:
-        form = ProductForm()
-        
-    return render(request, 'insta_groceries/home.html', {'form': form, 'prods': prods})
+        prods = Product.objects.all().order_by('-created_at')  # Order by creation date (descending)
+    form = ProductForm()
+    return render(request, 'insta_groceries/home.html', {'form': form, 'prods': prods, 'query': query})
 
 def about(request):
     if request.method == 'POST':
