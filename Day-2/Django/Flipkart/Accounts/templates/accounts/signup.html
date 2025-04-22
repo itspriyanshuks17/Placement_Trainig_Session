@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>
+        Sig Up    <!-- Note: There's a typo here, should be "Sign Up" -->
+    </h2>
+
+    <form method="POST" action="{% url 'signup' %}">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Sign Up</button>
+    </form>
+
+    <!-- You already have these navigation links -->
+    <p>Already have an account? <a href="{% url 'signin' %}">Sign In</a></p>
+    <p>Go to <a href="{% url 'home' %}">Home</a></p>
+
+</body>
+</html>
